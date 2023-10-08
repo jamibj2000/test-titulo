@@ -1,0 +1,31 @@
+.formulario{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    background-color: rgb(59, 59, 202);
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.input-especial{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin: 10px;
+}
+
+.button-espcial{
+    padding: 10px;
+    border-radius: 5px;
+    width: 50%;
+    border: none;
+    margin: 10px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.border{
+    border: black 1px solid;
+}
