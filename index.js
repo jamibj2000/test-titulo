@@ -4,29 +4,25 @@ const number = document.getElementById("number-id");
 const email = document.getElementById("email-id");
 const password = document.getElementById("password-id");
 const imagen = document.getElementById("imagen-id");
+const resultado = document.getElementById("resultado");
 
 const rickandmortyAPI = "https://rickandmortyapi.com/api/character"
 const pokemonAPI = "https://pokeapi.co/api/v2/pokemon/"
 const yugiohAPI = "https://db.ygoprodeck.com/api/v7/cardinfo.php"
-
-// function cargarDatos(evento) {
-
-//     console.log(text.value);
-//     console.log(number.value);
-//     console.log(email.value);
-//     console.log(password.value);
-// }
+const attributeEndpoint = "?attribute=divine"
 
 function cargarDatosPokemon() {
-    fetch(yugiohAPI)
-    .then(response => response.json())
-    .then(data => {
-        console.log({data});
-    })
+    if ( localStorage.getItem("imagen") ) {
+        console.log("traido de base de datos");
+        imagen.src = localStorage.getItem("imagen")
+    } else {
+        console.log("fue traido de internet");
+
+        fetch(pokemonAPI + "infernape")
+        .then(response => response.json())
+        .then(data => {
+            localStorage.setItem("imagen", data.sprites.front_default)            
+            imagen.src = localStorage.getItem("imagen")
+        })
+    }
 }
-
-formulario.addEventListener("submit", evento => {
-    evento.preventDefault()
-    cargarDatos()    
-});
-
